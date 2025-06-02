@@ -2,6 +2,8 @@ package com.springDataJpaMapping.Mapping.controller;
 
 import com.springDataJpaMapping.Mapping.Entities.Department;
 import com.springDataJpaMapping.Mapping.service.DepartmentService;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
@@ -58,5 +60,8 @@ public class DepartmentController {
     private Department assignWorkerToDepartment(@PathVariable Long departmentId,@PathVariable Long employeeId){
         return departmentService.assignWorkerToDepartment(departmentId,employeeId);
     }
+
+//    AuthenticationManager
+//    SecurityFilterChain
 
 }
