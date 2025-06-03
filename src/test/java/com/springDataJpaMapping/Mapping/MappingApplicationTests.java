@@ -1,5 +1,7 @@
 package com.springDataJpaMapping.Mapping;
 
+import com.springDataJpaMapping.Mapping.Entities.User;
+import com.springDataJpaMapping.Mapping.service.JwtService;
 import com.springDataJpaMapping.Mapping.service.RestClientService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,9 @@ class MappingApplicationTests {
 	@Autowired
 	private RestClientService restClientService;
 
+	@Autowired
+	private JwtService jwtService;
+
 	@Test
 	public void getPostFromThirdPartyAPI(){
 				String returnedDAta = restClientService.getPostFromThirdPartyAPI();
@@ -26,6 +31,13 @@ class MappingApplicationTests {
 		String returnedData = restClientService.createPostToThirdPartyAPI();
 		System.out.println("inside createpost");
 		System.out.println(returnedData);
+	}
+
+	@Test
+	public void generateToken(){
+		User user = new User(1L,"tridib@mail.com","sdfbsjb","tridib");
+		String token = jwtService.generateToken(user);
+		System.out.println(token);
 	}
 
 }
